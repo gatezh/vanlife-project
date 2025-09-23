@@ -7,10 +7,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </nav> */}
       <header>
         <Link className="site-logo" to="/">#VanLife</Link>
         <nav>
@@ -19,6 +15,8 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        {/* Fix for GitHub Pages deployment */}
+        <Route path="/vanlife-project" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
       </Routes>
     </BrowserRouter>
