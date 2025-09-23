@@ -1,12 +1,13 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #FFF7ED;
-    font-family: "Inter", sans-serif;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff7ed;
+  font-family: "Inter", sans-serif;
 }
 
 body::-webkit-scrollbar {

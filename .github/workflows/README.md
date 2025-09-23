@@ -1,7 +1,6 @@
 # GitHub pages deployment
 
 1. Go to repository **Settings** > **Pages**
-
    - Source: GitHub Actions
    - Branch: master > Save
 
@@ -10,23 +9,20 @@
    ```js
    import { defineConfig } from "vite";
    import react from "@vitejs/plugin-react";
-   
+
    // GitHub Actions
    // GITHUB_REPOSITORY is in format "owner/repo"
    // In local dev you might want base="/", but in GH Actions it runs in GITHUB_ACTIONS env.
    const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] || "";
    const isGithubActions = Boolean(process.env.GITHUB_ACTIONS);
-   
+
    // https://vite.dev/config/
    export default defineConfig({
      base: isGithubActions && repoName ? `/${repoName}/` : "/",
      plugins: [react()],
    });
-   
    ```
 
 3. Commit and push
-
-
 
 Your deployed project should be available at https://OWNER.github.io/PROJECT where `OWNER` is your GitHub nickname, and `PROJECT` is your GitHub project name.
