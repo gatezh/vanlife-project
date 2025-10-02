@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans from "./pages/Vans";
 import VanDetail from "./pages/VanDetail";
+import Layout from "./components/Layout";
 import "./App.css";
 
 import "../server";
@@ -10,22 +11,15 @@ import "../server";
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <Link className="site-logo" to="/">
-          #VanLife
-        </Link>
-        <nav>
-          <Link to="/vans">Vans</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        {/* Fix for GitHub Pages deployment */}
-        <Route path="/vanlife-project/" element={<Home />}></Route>
-        <Route path="/vans" element={<Vans />}></Route>
-        <Route path="/vans/:id" element={<VanDetail />}></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />}></Route>
+          {/* Fix for GitHub Pages deployment */}
+          <Route path="/vanlife-project/" element={<Home />}></Route>
+          <Route path="/vans" element={<Vans />}></Route>
+          <Route path="/vans/:id" element={<VanDetail />}></Route>
+          <Route path="/about" element={<About />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
