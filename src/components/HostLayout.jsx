@@ -29,8 +29,8 @@ export default function HostLayout() {
         >
           Reviews
         </NavLink>
-        <Outlet />
       </nav>
+      <Outlet />
     </>
   );
 }
