@@ -14,14 +14,18 @@ import "./App.css";
 
 import "../server";
 
+// Vite exposes the configured base at import.meta.env.BASE_URL.
+// Normalize it: use `undefined` for dev (so BrowserRouter behaves normally),
+// otherwise strip the trailing slash for a clean basename like "/reviews-app".
+const rawBase = import.meta.env.BASE_URL || "/";
+const basename = rawBase === "/" ? undefined : rawBase.replace(/\/$/, "");
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* Fix for GitHub Pages deployment */}
-          <Route path="/vanlife-project/" element={<Home />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
           <Route path="about" element={<About />} />
