@@ -12,18 +12,26 @@ export default function HostVanDetail() {
   }, []);
 
   if (!hostVan) {
-    return <h2>Loading...</h2>
+    return <h2>Loading...</h2>;
   }
 
   return (
-    <>
-      <Link to="/host/vans">⬅️ Back to your Vans list</Link>
-      <div>
-        <img src={hostVan.imageUrl} width={150} />
-        <h2>{hostVan.name}</h2>
-        <p>{hostVan.price}</p>
-        <p>{hostVan.type}</p>
+    <section>
+      <Link to=".." relative="path" className="back-button">
+        &larr; <span>Back to all vans</span>
+      </Link>
+      <div className="host-van-detail-layout-container">
+        <div className="host-van-detail">
+          <img src={hostVan.imageUrl} />
+          <div className="host-van-detail-info-text">
+            <i className={`van-type van-type-${hostVan.type}`}>
+              {hostVan.type}
+            </i>
+            <h3>{hostVan.name}</h3>
+            <h4>${hostVan.price}/day</h4>
+          </div>
+        </div>
       </div>
-    </>
+    </section>
   );
 }
