@@ -16,8 +16,8 @@ export default function Vans() {
       <h1>Explore our van options</h1>
       <div className="van-list">
         {vans.map((van) => (
-          <Link to={`/vans/${van.id}`}>
-            <div key={van.id} className="van-tile">
+          <Link to={`/vans/${van.id}`} key={van.id}>
+            <div className="van-tile">
               <img src={van.imageUrl} />
               <div className="van-info">
                 <h3>{van.name}</h3>
