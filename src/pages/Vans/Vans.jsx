@@ -63,7 +63,11 @@ export default function Vans() {
       ) : null}
       <div className="van-list">
         {displayVans.map((van) => (
-          <Link to={`/vans/${van.id}`} key={van.id}>
+          <Link
+            to={van.id}
+            key={van.id}
+            state={{ search: `?${searchParams.toString()}` }}
+          >
             <div className="van-tile">
               <img src={van.imageUrl} />
               <div className="van-info">
