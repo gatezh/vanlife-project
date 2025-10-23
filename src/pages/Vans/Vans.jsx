@@ -8,7 +8,7 @@ export default function Vans() {
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
-    fetch("api/vans")
+    fetch("/api/vans")
       .then((response) => response.json())
       .then((data) => setVans(data.vans || []))
       .catch(() => setVans([]));
