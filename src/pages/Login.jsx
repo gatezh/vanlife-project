@@ -1,5 +1,5 @@
 import { useState, /* useEffect */ } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../../api";
 
 export default function Login() {
@@ -9,7 +9,9 @@ export default function Login() {
   });
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
+
   const location = useLocation();
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   console.log("Current status", status);
@@ -22,7 +24,10 @@ export default function Login() {
 
     console.log(loginFormData);
     loginUser(loginFormData)
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data);
+        navigate("/host");
+      })
       .catch(e => {
         console.log(e);
         setError(e)
