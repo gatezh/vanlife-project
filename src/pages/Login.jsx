@@ -26,7 +26,10 @@ export default function Login() {
     loginUser(loginFormData)
       .then(data => {
         console.log(data);
-        navigate("/host");
+        setError(null);
+        localStorage.setItem("loggedin", true);
+        console.log("Navigating with replace: true");
+        navigate("/host", { replace: true });
       })
       .catch(e => {
         console.log(e);
