@@ -29,7 +29,7 @@ export default function Login() {
         setError(null);
         localStorage.setItem("loggedin", true);
         console.log("Navigating with replace: true");
-        navigate("/host", { replace: true });
+        navigate(location.state.fromPath || "/host", { replace: true });
       })
       .catch(e => {
         console.log(e);
