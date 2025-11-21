@@ -13,6 +13,11 @@
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
+      // VSCode settings
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         // **General**
