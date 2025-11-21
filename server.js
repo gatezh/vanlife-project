@@ -86,6 +86,7 @@ createServer({
     this.namespace = "api";
     this.logging = false;
     // this.timing = 2000  // => mock a 2 second delay in server response
+    this.passthrough("https://firestore.googleapis.com/**");
 
     this.get("/vans", (schema, request) => {
       // return new Response(400, {}, {error: "Error fetching data"})
@@ -118,7 +119,7 @@ createServer({
         return new Response(
           401,
           {},
-          { message: "No user with those credentials found!" }
+          { message: "No user with those credentials found!" },
         );
       }
 
